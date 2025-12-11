@@ -1,0 +1,39 @@
+ext_if =			"e1000g0";
+my_IP =				"10.0.0.10/24"
+defrouter_IP =		"10.0.0.1/24";
+dns_IP =			"10.0.0.2/24";
+vnc_IP =			"10.0.0.10/24";
+
+# ===== FIREWALL RULES =====
+ALLOW_LO
+
+# ===== OUTBOUND =====
+ALLOW_PING_OUT
+ALLOW_DNS_OUT
+ALLOW_NTP_OUT
+ALLOW_SSH_OUT
+ALLOW_ICMPv6_OUT
+ALLOW_DHCPv6_OUT
+ALLOW_OUTBOUND:
+	proto=tcp	port=80		application=#http
+	proto=tcp	port=443	application=#https
+	proto=tcp	port=465	application=#mail
+	proto=tcp	port=587	application=#mail
+	proto=tcp	port=993	application=#mail
+	proto=tcp	port=5905	application=#vnc
+end
+
+# ===== INBOUND =====
+ALLOW_PING_IN
+ALLOW_ICMPv6_IN
+ALLOW_DHCPv6_IN
+ENABLE_SSH_IN:
+	from_IP=10.0.0.0/24
+end
+ALLOW_INBOUND:
+	proto=tcp/udp	port=5905	application=#vnc
+end
+
+# ===== BLOCK =====
+BLOCK_STRANGE
+BLOCK_OUT
