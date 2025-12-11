@@ -18,10 +18,10 @@ end
 # ===== INBOUND =====
 ALLOW_PING_IN
 ENABLE_SSH_IN:
-        from_IP=10.0.0.0/24
+	from_IP=10.0.0.0/24
 end
 ALLOW_INBOUND:
-	proto=tcp	port=6697	application=#irc
+	proto=tcp	port=6697	application=#irc_client
 	proto=tcp	port=7000	application=#webadmin
 end
 
