@@ -1,0 +1,4 @@
+# Ignore all subfolders that correspond to input files
+
+**/ipf.conf
+zonename.in
