@@ -1,0 +1,26 @@
+ext_if =			"z_paperless0";
+my_IP =				"10.0.0.170/24"
+defrouter_IP =		"10.0.0.1/24";
+dns_IP =			"10.0.0.2/24";
+
+# ===== FIREWALL RULES =====
+ALLOW_LO
+
+# ===== OUTBOUND =====
+ALLOW_PING_OUT
+ALLOW_DNS_OUT
+ALLOW_NTP_OUT
+ALLOW_OUTBOUND:
+	proto=tcp	port=443	application=#https
+	proto=tcp	port=587	application=#mail
+end
+
+# ===== INBOUND =====
+ALLOW_PING_IN
+ALLOW_INBOUND:
+	proto=tcp/udp	port=8000	application=#Paperless
+end
+
+# ===== BLOCK =====
+BLOCK_STRANGE
+BLOCK_OUT
