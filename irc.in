@@ -1,0 +1,30 @@
+ext_if =			"z_irc0";
+my_IP =				"10.0.0.90/24"
+defrouter_IP =		"10.0.0.1/24";
+dns_IP =			"10.0.0.2/24";
+
+# ===== FIREWALL RULES =====
+ALLOW_LO
+
+# ===== OUTBOUND =====
+ALLOW_PING_OUT
+ALLOW_DNS_OUT
+ALLOW_NTP_OUT
+ALLOW_SSH_OUT
+ALLOW_OUTBOUND:
+	proto=tcp	port=any	application=#any
+end
+
+# ===== INBOUND =====
+ALLOW_PING_IN
+ENABLE_SSH_IN:
+        from_IP=10.0.0.0/24
+end
+ALLOW_INBOUND:
+	proto=tcp	port=6697	application=#irc
+	proto=tcp	port=7000	application=#webadmin
+end
+
+# ===== BLOCK =====
+BLOCK_STRANGE
+BLOCK_OUT

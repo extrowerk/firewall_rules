@@ -73,7 +73,7 @@ macro BLOCK_STRANGE:
 # Block fragments and too short tcp packets
 block in quick on $ext_if all with frags
 block in quick on $ext_if proto tcp all with short
-# block source routed packets
+# Block source routed packets
 block in quick on $ext_if all with opt lsrr
 block in quick on $ext_if all with opt ssrr
 # Block OS fingerprint attempts and log first occurrence
