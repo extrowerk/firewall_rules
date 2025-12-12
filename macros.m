@@ -69,6 +69,11 @@ macro ALLOW_OUTBOUND:
 pass out quick on $ext_if proto ${proto} from $my_IP to port = ${port} keep state ${application}
 end
 
+macro ALLOW_OUTBOUND_ANY_PORT:
+# Allow outbound traffic
+pass out quick on $ext_if proto ${proto} from $my_IP keep state ${application}
+end
+
 macro BLOCK_STRANGE:
 # Block fragments and too short tcp packets
 block in quick on $ext_if all with frags

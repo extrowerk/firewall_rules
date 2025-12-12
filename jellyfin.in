@@ -1,5 +1,5 @@
 ext_if =			"z_jellyfin0";
-my_IP =				"10.0.0.70/24"
+my_IP =				"10.0.0.70/24";
 defrouter_IP =		"10.0.0.1/24";
 dns_IP =			"10.0.0.2/24";
 

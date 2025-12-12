@@ -1,5 +1,5 @@
 ext_if =			"e1000g0";
-my_IP =				"10.0.0.10/24"
+my_IP =				"10.0.0.10/24";
 defrouter_IP =		"10.0.0.1/24";
 dns_IP =			"10.0.0.2/24";
 
@@ -26,11 +26,8 @@ end
 ALLOW_PING_IN
 ALLOW_ICMPv6_IN
 ALLOW_DHCPv6_IN
-ENABLE_SSH_IN:
-	from_IP=10.0.0.0/24
-end
 ALLOW_INBOUND:
-	proto=tcp/udp	port=5905	application=#vnc
+	proto=tcp	port=22		application=#ssh
 end
 
 # ===== BLOCK =====

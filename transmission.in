@@ -1,5 +1,5 @@
 ext_if =			"z_transmission0";
-my_IP =				"10.0.0.30/24"
+my_IP =				"10.0.0.30/24";
 defrouter_IP =		"10.0.0.1/24";
 dns_IP =			"10.0.0.2/24";
 
@@ -10,8 +10,8 @@ ALLOW_LO
 ALLOW_PING_OUT
 ALLOW_DNS_OUT
 ALLOW_NTP_OUT
-ALLOW_OUTBOUND:
-	proto=tcp/udp	port=any	application=#transmission
+ALLOW_OUTBOUND_ANY_PORT:
+	proto=tcp/udp	application=#transmission
 end
 
 # ===== INBOUND =====
