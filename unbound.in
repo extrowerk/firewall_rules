@@ -10,8 +10,9 @@ ALLOW_LO
 ALLOW_PING_OUT
 ALLOW_NTP_OUT
 ALLOW_OUTBOUND:
-	proto=tcp	port=443	application=#DNS-over-HTTPS
-	proto=tcp	port=853	application=#DNS-over-TLS
+	proto=tcp/udp	port=53		application=#DNS
+	proto=tcp		port=443	application=#DNS-over-HTTPS
+	proto=tcp		port=853	application=#DNS-over-TLS
 end
 
 # ===== INBOUND =====

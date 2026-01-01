@@ -21,6 +21,7 @@ ALLOW_INBOUND:
 	proto=tcp	port=443	application=#Tailscale
 	proto=udp	port=3478	application=#Tailscale
 	proto=udp	port=41641	application=#Tailscale
+	proto=udp	port=64920	application=#Tailscale
 end
 
 # ===== BLOCK =====

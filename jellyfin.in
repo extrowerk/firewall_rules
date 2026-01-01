@@ -13,6 +13,8 @@ ALLOW_NTP_OUT
 ALLOW_OUTBOUND:
 	proto=tcp	port=80		application=#http
 	proto=tcp	port=443	application=#https
+	proto=tcp/udp	port=8920	application=#UPnP
+	proto=tcp/udp	port=1900	application=#DLNA
 end
 
 # ===== INBOUND =====
