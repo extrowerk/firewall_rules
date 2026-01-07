@@ -29,6 +29,7 @@ ALLOW_DHCPv6_IN
 ALLOW_INBOUND:
 	proto=tcp	port=22		application=#ssh
 end
+pass in quick on $ext_if proto udp from any to port 60000 >< 60100 keep state #mosh
 
 # ===== BLOCK =====
 BLOCK_STRANGE
