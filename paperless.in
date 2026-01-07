@@ -13,6 +13,7 @@ ALLOW_NTP_OUT
 ALLOW_OUTBOUND:
 	proto=tcp	port=443	application=#https
 	proto=tcp	port=587	application=#mail
+	proto=tcp	port=993	application=#mail
 end
 
 # ===== INBOUND =====
