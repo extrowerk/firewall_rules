@@ -69,6 +69,16 @@ macro ALLOW_OUTBOUND:
 pass out quick on $ext_if proto ${proto} from $my_IP to port = ${port} keep state ${application}
 end
 
+macro ALLOW_INBOUND_RANGE:
+# Allow inbound port range
+pass in quick on $ext_if proto ${proto} from any to port ${port_range} keep state ${application}
+end
+
+macro ALLOW_OUTBOUND_RANGE:
+# Allow outbound port range
+pass out quick on $ext_if proto ${proto} from $my_IP to port ${port_range} keep state ${application}
+end
+
 macro ALLOW_OUTBOUND_ANY_PORT:
 # Allow outbound traffic
 pass out quick on $ext_if proto ${proto} from $my_IP keep state ${application}

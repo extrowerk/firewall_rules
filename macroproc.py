@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import re
 import sys
+import shlex
 
 # -------------------------------------------------------------
 # Parse macro definitions
@@ -69,14 +70,27 @@ def expand_block_macro(body, arg_lines, variables):
         if not line:
             continue
         args = {}
-        for part in line.split():
+
+        # smarter splitting respecting quotes
+        for part in shlex.split(line):
             if "=" in part:
                 k, v = part.split("=", 1)
                 args[k] = v
+
         temp = body
+
+        # Replace arguments in the body
         for k, v in args.items():
+            # remove quotes around values if any
+            v = v.strip('"')
             temp = temp.replace("${" + k + "}", v)
+
+        # Replace remaining variables from global scope
         temp = substitute_vars(temp, variables)
+
+        # replace 'port_range' literal with 'port' in final output
+        temp = temp.replace("port_range", "port")
+
         expanded.extend(temp.splitlines())
     return expanded
 
