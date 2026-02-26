@@ -17,6 +17,7 @@ end
 
 # ===== INBOUND =====
 ALLOW_PING_IN
+ALLOW_PROMETHEUS_IN
 ALLOW_INBOUND:
 	proto=tcp/udp	port=53	application=#DNS_client
 end

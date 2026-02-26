@@ -59,6 +59,11 @@ macro ALLOW_DHCPv6_IN:
 pass in quick proto udp from any to any port = 546 keep state
 end
 
+macro ALLOW_PROMETHEUS_IN:
+# Allow Prometheus scrape
+pass in quick proto tcp from any to any port = 9100 keep state
+end
+
 macro ALLOW_INBOUND:
 # Allow inbound traffic
 pass in quick on $ext_if proto ${proto} from any to port = ${port} keep state ${application}

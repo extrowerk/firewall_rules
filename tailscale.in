@@ -16,6 +16,7 @@ end
 
 # ===== INBOUND =====
 ALLOW_PING_IN
+ALLOW_PROMETHEUS_IN
 ALLOW_INBOUND:
 	proto=tcp	port=80		application=#Tailscale
 	proto=tcp	port=443	application=#Tailscale

@@ -19,6 +19,7 @@ end
 
 # ===== INBOUND =====
 ALLOW_PING_IN
+ALLOW_PROMETHEUS_IN
 ALLOW_INBOUND:
 	proto=tcp/udp	port=8096	application=#Jellyfin
 	proto=tcp/udp	port=8920	application=#UPnP

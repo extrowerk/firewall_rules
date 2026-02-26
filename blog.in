@@ -18,6 +18,7 @@ end
 
 # ===== INBOUND =====
 ALLOW_PING_IN
+ALLOW_PROMETHEUS_IN
 ENABLE_SSH_IN:
 	from_IP=10.0.0.0/24
 end
